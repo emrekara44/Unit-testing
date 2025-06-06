@@ -44,7 +44,8 @@ class TestShoppingCart(unittest.TestCase):
     def test_failing_case(self):
         self.cart.add_item("Pen", 5, 2)
         self.cart.apply_discount(10)
-        self.assertNotEqual(self.cart.total_price(), 9)  # intentional fail if price changes
+        # Verify discounted total after applying 10% discount to two pens
+        self.assertEqual(self.cart.total_price(), 9)
 
 if __name__ == "__main__":
     unittest.main()
